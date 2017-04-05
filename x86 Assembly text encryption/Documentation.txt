@@ -1,0 +1,30 @@
+Encryption/Decryption software.
+(Documentation)
+===============================================
+Requirements:
+	1. Dosbox
+	2. An input "*.txt" file of character name no more than 9 letters.
+		Note: File name is not case-sensitive.
+		      Add ".txt" after file name.
+Instructions to use:
+	1. Run the program using dosbox and mount the address of this folder.
+	2. Select desired option.
+		a. Encrypt/Decrpyt data and store it into a file.
+		b. Encrypt/Decrypt data, Display it on console and then store it into a file.
+		c. Encrypt/Decrypt data on the runtime (inside console), store it into a file.
+		d. Exit.
+	3. Delete, if desired, files before exiting using given options.
+	4. Avoid backspaces.
+
+Known issues:
+	1. While decoding some alphabets may get replaced with preceding/succeeding alphabets in the table.
+		Example: A gets replaced by Z or P gets replaced by Q etc.
+
+Troubleshooting:
+	1. Wrong file name. (Console will display an error and then exit)
+	2. Wrong encryption/decryption. (Possible wrong rotor configration)
+	3. Wrong encryption/decryption on reuse. (Restart the program)
+===============================================
+Created by:
+		Faraz Mazhar BCSF14M529
+		
