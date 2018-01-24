@@ -1,0 +1,19 @@
+%% This function performs bilinear interpolation.
+%  * author: Faraz Mazhar, BCSF14M529
+% ASSUMPTIONS:
+%  * None
+
+function [interpolated] = interpolation(x, y, I)
+    uX = floor(x);
+    uY = floor(y);
+    uXi = uX + 1;
+    uYi = uY + 1;
+    
+    Exi = uXi - x;
+    Eyi = uYi - y;
+    Ex = x - uX;
+    Ey = y - uY;
+    
+    if (uX <= size(I)(1) && uXi <= size(I)(1) && uY <= size(I)(2) && uX <= size(I)(2))
+    interpolated = (Exi * Eyi * I(uX, uY)) + (Ex * Eyi * I(uXi, uY)) + (Exi * Ey * I(uX, uYi)) + (Ex * Ey * I(uXi, uYi));
+end

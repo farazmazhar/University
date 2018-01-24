@@ -1,0 +1,26 @@
+%% This function will perform forward mapping.
+%  * author: Faraz Mazhar, BCSF14M529
+% ASSUMPTIONS:
+%  * None
+
+function [Ifm] = forwardmapping(I, affine)
+    [r, c, d] = size(I);
+    Ifm = uint8(zeros(r, c, d));
+    AffineMatrix = [affine(1), affine(2), affine(3); affine(4), affine(5), affine(6); 0, 0, 1];
+    
+    for x = 1:r
+        for y = 1:c
+            %X = [x, y, 1, 0, 0, 0; 0, 0, 0, x, y, 1];
+            X = [x, y, 1]';
+            
+            transformed = AffineMatrix * X;
+            transformed = floor(transformed);
+            
+            if ((transformed(1) >= 1 && transformed(1) <= r) && (transformed(2) > 1 && transformed(2) <= c))
+                Ifm(transformed(1), transformed(2), 1) = I(x, y, 1);
+                Ifm(transformed(1), transformed(2), 2) = I(x, y, 2);
+                Ifm(transformed(1), transformed(2), 3) = I(x, y, 3);
+            end
+        end
+    end
+end
